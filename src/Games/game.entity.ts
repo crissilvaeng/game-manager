@@ -2,17 +2,17 @@ import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
 import { Movement } from './movement.entity';
 
 export enum Color {
-    White = 'White',
-    Black = 'Black'
-  }
-  
+  White = 'White',
+  Black = 'Black',
+}
+
 export enum Termination {
-    Checkmate = 'Checkmate',
-    Stalemate = 'Stalemate',
-    InsufficientMaterial = 'InsufficientMaterial',
-    ThreefoldRepetition = 'ThreefoldRepetition',
-    FiftyMoves = 'FiftyMoves',
-  }
+  Checkmate = 'Checkmate',
+  Stalemate = 'Stalemate',
+  InsufficientMaterial = 'InsufficientMaterial',
+  ThreefoldRepetition = 'ThreefoldRepetition',
+  FiftyMoves = 'FiftyMoves',
+}
 
 @Table
 export class Game extends Model {
@@ -35,7 +35,7 @@ export class Game extends Model {
   })
   black: string;
 
-  @HasMany(() => Movement )
+  @HasMany(() => Movement)
   moves: Movement[];
 
   @Column({
@@ -46,13 +46,12 @@ export class Game extends Model {
   @Column({
     type: DataType.ENUM(...Object.keys(Termination)),
   })
-  winner: string
+  winner: string;
 
   @Column({
     type: DataType.STRING,
   })
-  result: string
+  result: string;
 
-// TODO: implement outcome
-
+  // TODO: implement outcome
 }
