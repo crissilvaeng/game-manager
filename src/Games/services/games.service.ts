@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Game } from '../game.entity';
+import { Game } from '../entities/game.entity';
 
 @Injectable()
 export class GamesService {

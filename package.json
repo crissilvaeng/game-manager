@@ -37,6 +37,7 @@
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
+    "nats": "^1.4.12",
     "nest-morgan": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
