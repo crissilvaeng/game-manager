@@ -2,7 +2,7 @@ import * as compression from 'compression';
 import * as helmet from 'helmet';
 
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { Transport } from '@nestjs/microservices';
 
 import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';

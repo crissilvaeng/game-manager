@@ -1,4 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Expose } from 'class-transformer';
 
 import { Movement } from '../../movement/entities/movement.entity';
 
@@ -24,12 +25,14 @@ export class Game extends Model {
   })
   id: string;
 
+  @Expose()
   @Column({
     type: DataType.UUID,
     unique: true,
   })
   white: string;
 
+  @Expose()
   @Column({
     type: DataType.UUID,
     unique: true,
@@ -55,4 +58,10 @@ export class Game extends Model {
     type: DataType.STRING,
   })
   result: string;
+
+  @Expose()
+  @Column({
+    type: DataType.STRING,
+  })
+  tournamentId: string;
 }

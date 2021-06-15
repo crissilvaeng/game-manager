@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { CreateGameDto } from '../entities/create-game.dto';
+import { GameDto } from '../entities/game.dto';
 import { Game } from '../entities/game.entity';
 
 @Injectable()
@@ -17,8 +19,8 @@ export class GamesService {
     return this.gameModel.findByPk(id);
   }
 
-  async create(game: Game) {
-    this.gameModel.create(game);
+  async create(game: CreateGameDto): Promise<GameDto> {
+    return this.gameModel.create(game);
   }
 
   async edit(game: Game): Promise<[number, Game[]]> {
