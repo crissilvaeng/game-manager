@@ -6,10 +6,10 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { Game } from 'src/games/entities/game.entity';
-import { EVENT_HUB } from './games.publisher.type';
+import { EVENT_HUB } from '../../nats.type';
 
 @Injectable()
-export class GamesPublisherService implements OnModuleInit, OnModuleDestroy {
+export class PublisherService implements OnModuleInit, OnModuleDestroy {
   constructor(@Inject(EVENT_HUB) private readonly client: ClientProxy) {}
 
   async onModuleInit(): Promise<void> {

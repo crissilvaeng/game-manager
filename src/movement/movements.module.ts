@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common';
-import { SubscriberController } from './games.subscriber.controller';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
+import { GamesModule } from '../games/games.module';
+import { Module } from '@nestjs/common';
+
 @Module({
-  controllers: [SubscriberController],
+  imports: [GamesModule],
   providers: [
     {
       provide: 'EVENT_HUB',

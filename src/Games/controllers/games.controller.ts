@@ -1,41 +1,18 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { Livro } from './livro.model';
-import { LivrosService } from './livros.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { Game } from '../entities/game.entity';
+import { GamesService } from '../services/games.service';
 
-@Controller('livros')
-export class LivrosController {
-  constructor(private livrosService: LivrosService) {}
+@Controller('games')
+export class GamesController {
+  constructor(private gamesService: GamesService) {}
 
   @Get()
-  async obterTodos(): Promise<Livro[]> {
-    return this.livrosService.obterTodos();
+  async getAll(): Promise<Game[]> {
+    return this.gamesService.findAll();
   }
 
   @Get(':id')
-  async obterUm(@Param() params): Promise<Livro> {
-    return this.livrosService.obterUm(params.id);
-  }
-
-  @Post()
-  async criar(@Body() livro: Livro) {
-    return this.livrosService.criar(livro);
-  }
-
-  @Put()
-  async alterar(@Body() livro: Livro): Promise<[number, Livro[]]> {
-    return this.livrosService.alterar(livro);
-  }
-
-  @Delete(':id')
-  async apagar(@Param() params) {
-    this.livrosService.apagar(params.id);
+  async findOne(@Param() params): Promise<Game> {
+    return this.gamesService.findOne(params.id);
   }
 }

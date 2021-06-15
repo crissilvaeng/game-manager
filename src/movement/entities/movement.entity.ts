@@ -6,7 +6,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Color, Game } from './game.entity';
+import { Game } from '../../games/entities/game.entity';
 
 @Table
 export class Movement extends Model {
@@ -28,7 +28,7 @@ export class Movement extends Model {
   board: string;
 
   @Column({
-    type: DataType.ENUM(...Object.keys(Color)),
+    type: DataType.STRING,
   })
   turn: string;
 

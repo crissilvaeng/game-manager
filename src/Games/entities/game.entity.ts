@@ -1,5 +1,6 @@
 import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
-import { Movement } from './movement.entity';
+
+import { Movement } from '../../movement/entities/movement.entity';
 
 export enum Color {
   White = 'White',
@@ -40,11 +41,13 @@ export class Game extends Model {
 
   @Column({
     type: DataType.ENUM(...Object.keys(Termination)),
+    defaultValue: Termination.Checkmate,
   })
   termination: string;
 
   @Column({
-    type: DataType.ENUM(...Object.keys(Termination)),
+    type: DataType.ENUM(...Object.keys(Color)),
+    defaultValue: Color.White,
   })
   winner: string;
 
@@ -52,6 +55,4 @@ export class Game extends Model {
     type: DataType.STRING,
   })
   result: string;
-
-  // TODO: implement outcome
 }

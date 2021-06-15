@@ -3,7 +3,7 @@ import { Movement } from '../entities/movement.entity';
 import { MovementsService } from '../services/movements.service';
 
 @Controller('games')
-export class GamesController {
+export class MovementController {
   constructor(private movementsService: MovementsService) {}
 
   @Get()
