@@ -7,8 +7,9 @@ import { Game } from '../entities/game.entity';
 export class SubscriberController {
   constructor(private gamesService: GamesService) {}
 
-  @EventPattern('game_created')
-  async create(data: Record<string, unknown>) {
+  @EventPattern('create_game')
+  async handleGameCreated(data: Record<string, unknown>) {
+    console.log(data);
     Game.create({
       white: data.white,
       black: data.black,

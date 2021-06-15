@@ -13,6 +13,7 @@ export class SubscriberController {
 
   @EventPattern('movement_created')
   async create(data: Record<string, unknown>) {
+    console.log(data);
     this.gamesService.findOne(data.gameId as number).then(
       (game) =>
         function () {

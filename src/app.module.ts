@@ -50,7 +50,7 @@ import configuration from './config/configuration';
         await sequelize.sync();
         return sequelize;
       },
-    }
+    },
   ],
 })
 export class AppModule {}

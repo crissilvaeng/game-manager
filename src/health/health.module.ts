@@ -19,7 +19,7 @@ import { TerminusModule } from '@nestjs/terminus';
         synchronize: true,
       }),
     }),
-    TerminusModule
+    TerminusModule,
   ],
   controllers: [HealthController],
 })

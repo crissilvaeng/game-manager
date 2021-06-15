@@ -10,8 +10,8 @@ import { NestFactory } from '@nestjs/core';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
-  app.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.NATS,
+  app.connectMicroservice({
+    transport: Transport.TCP,
     options: {
       url: 'nats://localhost:4222',
     },

@@ -1,6 +1,5 @@
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
-import { ConfigService } from '@nestjs/config';
 import { Game } from './entities/game.entity';
 import { GamesController } from './controllers/games.controller';
 import { GamesPublisherController } from './controllers/games.publisher.controller';
@@ -8,7 +7,6 @@ import { GamesService } from './services/games.service';
 import { Module } from '@nestjs/common';
 import { Movement } from 'src/movement/entities/movement.entity';
 import { PublisherService } from './services/games.publisher.service';
-import { Sequelize } from 'sequelize-typescript';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SubscriberController } from './controllers/games.subscriber.controller';
 
@@ -17,7 +15,7 @@ import { SubscriberController } from './controllers/games.subscriber.controller'
   controllers: [
     GamesController,
     SubscriberController,
-    GamesPublisherController
+    GamesPublisherController,
   ],
   providers: [
     GamesService,
@@ -29,8 +27,6 @@ import { SubscriberController } from './controllers/games.subscriber.controller'
       }),
     },
   ],
-  exports: [GamesService]
+  exports: [GamesService],
 })
 export class GamesModule {}
-
-
