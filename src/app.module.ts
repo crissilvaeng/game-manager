@@ -2,8 +2,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MorganInterceptor, MorganModule } from 'nest-morgan';
 
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { Game } from './games/entities/game.entity';
-import { GamesModule } from './games/games.module';
+import { Game } from './Games/entities/game.entity';
+import { GamesModule } from './Games/games.module';
 import { HealthModule } from './health/health.module';
 import { Module } from '@nestjs/common';
 import { Movement } from './movement/entities/movement.entity';

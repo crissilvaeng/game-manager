@@ -1,6 +1,6 @@
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
-import { GamesModule } from '../games/games.module';
+import { GamesModule } from '../Games/games.module';
 import { Module } from '@nestjs/common';
 
 @Module({

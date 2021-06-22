@@ -1,5 +1,5 @@
 import { Controller, Post } from '@nestjs/common';
-import { Game } from 'src/games/entities/game.entity';
+import { Game } from '../entities/game.entity';
 import { PublisherService } from '../services/games.publisher.service';
 
 @Controller()

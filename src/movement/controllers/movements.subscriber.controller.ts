@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern } from '@nestjs/microservices';
-import { GamesService } from 'src/games/services/games.service';
+import { GamesService } from '../../Games/services/games.service';
 import { Movement } from '../entities/movement.entity';
 import { MovementsService } from '../services/movements.service';
 

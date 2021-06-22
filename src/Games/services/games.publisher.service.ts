@@ -5,7 +5,7 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { Game } from 'src/games/entities/game.entity';
+import { Game } from '../entities/game.entity';
 import { EVENT_HUB } from '../../nats.type';
 
 @Injectable()

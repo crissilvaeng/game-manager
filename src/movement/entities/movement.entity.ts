@@ -6,7 +6,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Game } from '../../games/entities/game.entity';
+import { Game } from '../../Games/entities/game.entity';
 
 @Table
 export class Movement extends Model {
