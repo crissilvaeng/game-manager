@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpService, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateGameDto } from '../entities/create-game.dto';
 import { GameDto } from '../entities/game.dto';
@@ -9,6 +9,7 @@ export class GamesService {
   constructor(
     @InjectModel(Game)
     private gameModel: typeof Game,
+    private httpService: HttpService,
   ) {}
 
   async findAll(): Promise<Game[]> {
@@ -34,5 +35,11 @@ export class GamesService {
   async delete(id: number) {
     const game: Game = await this.findOne(id);
     game.destroy();
+  }
+
+  async postGame(game: GameDto) {
+    this.httpService.post(process.env.POST_GAME_URL, {
+      content: JSON.stringify(game),
+    });
   }
 }

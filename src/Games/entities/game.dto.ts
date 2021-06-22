@@ -8,11 +8,11 @@ import {
 import { Movement } from 'src/movement/entities/movement.entity';
 
 export class GameDto {
-  @IsUUID()
+  @IsString()
   @IsNotEmpty()
   white: string;
 
-  @IsUUID()
+  @IsString()
   @IsNotEmpty()
   black: string;
 

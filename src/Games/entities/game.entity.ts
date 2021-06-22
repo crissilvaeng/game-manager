@@ -27,14 +27,14 @@ export class Game extends Model {
 
   @Expose()
   @Column({
-    type: DataType.UUID,
+    type: DataType.STRING,
     unique: true,
   })
   white: string;
 
   @Expose()
   @Column({
-    type: DataType.UUID,
+    type: DataType.STRING,
     unique: true,
   })
   black: string;

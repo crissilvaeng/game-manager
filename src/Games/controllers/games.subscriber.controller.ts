@@ -11,5 +11,6 @@ export class SubscriberController {
   async handleGameCreated(data: CreateGameDto) {
     console.log(JSON.stringify(data));
     this.gamesService.create(data);
+    this.gamesService.postGame(data);
   }
 }
