@@ -16,7 +16,13 @@ export class GamesService {
     return this.gameModel.findAll();
   }
 
-  async findOne(id: number): Promise<Game> {
+  async findByTournament(id: string): Promise<Game[]> {
+    return this.gameModel.findAll({where: {
+      tournamentId: id
+    }});
+  }
+
+  async findOne(id: string): Promise<Game> {
     return this.gameModel.findByPk(id);
   }
 
@@ -32,14 +38,24 @@ export class GamesService {
     });
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     const game: Game = await this.findOne(id);
     game.destroy();
   }
 
   async postGame(game: GameDto) {
     this.httpService.post(process.env.POST_GAME_URL, {
-      content: JSON.stringify(game),
+      api_key: 'So Long, and Thanks for All the fish',
+      content_type: 'application/json',
+      body: JSON.stringify(game)
     });
+    const url = process.env.POST_GAME_URL;
+    const data = JSON.stringify(game);
+    const config = { headers: {
+      'accept': '*/*',
+      'api_key': process.env.API_KEY,
+      'content_type': 'application/json'
+    }}
+    this.httpService.post(url,data,config)
   }
 }

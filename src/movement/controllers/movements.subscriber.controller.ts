@@ -12,26 +12,11 @@ export class SubscriberController {
   ) {}
 
   @EventPattern('movement_created')
-  async create(data: Record<string, unknown>) {
-    console.log(data);
-    this.gamesService.findOne(data.gameId as number).then(
-      (game) =>
-        function () {
-          Movement.create({
-            move: data.move,
-            board: data.board,
-            turn: data.turn,
-            player: data.player,
-            gameId: data.gameId,
-            game: game,
-          }).then(
-            (movement) =>
-              function () {
-                this.movementsService.create(movement);
-                //TODO: Adicionar o movimento ao game
-              },
-          );
-        },
-    );
+  async create(move: Movement) {
+    console.log(move);
+    var game = await this.gamesService.findOne(move.gameId);
+    game.moves.push(move);
+    move.game = game;
+    move.save()
   }
 }
