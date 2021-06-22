@@ -12,7 +12,7 @@ export class GamesController {
   }
 
   @Get(':id')
-  async findOne(@Param() params): Promise<Game> {
-    return this.gamesService.findOne(params.id);
+  async findByTornament(@Param() params): Promise<Game[]> {
+    return this.gamesService.findByTournament(params.id);
   }
 }
