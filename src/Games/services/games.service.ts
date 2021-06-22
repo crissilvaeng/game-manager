@@ -44,18 +44,16 @@ export class GamesService {
   }
 
   async postGame(game: GameDto) {
-    this.httpService.post(process.env.POST_GAME_URL, {
-      api_key: 'So Long, and Thanks for All the fish',
-      content_type: 'application/json',
-      body: JSON.stringify(game)
-    });
+    
     const url = process.env.POST_GAME_URL;
     const data = JSON.stringify(game);
-    const config = { headers: {
+    const config = { type: 'POST', headers: {
       'accept': '*/*',
-      'api_key': process.env.API_KEY,
+      'Authorization': 'Bearer ' + process.env.API_KEY,
       'content_type': 'application/json'
     }}
+    
     this.httpService.post(url,data,config)
+    
   }
 }

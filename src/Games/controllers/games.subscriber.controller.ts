@@ -9,10 +9,16 @@ export class SubscriberController {
   constructor(private gamesService: GamesService) {}
 
   @EventPattern('create_game')
-  async handleGameCreated(data: CreateGameDto) {
+  async handleCreateGame(data: CreateGameDto) {
     console.log(JSON.stringify(data));
     this.gamesService.create(data);
     this.gamesService.postGame(data);
+  }
+
+  @EventPattern('games.*.started')
+  async handleGameCreated(data: Game) {
+    console.log(JSON.stringify(data));
+    this.gamesService.create(data);
   }
 
   @EventPattern('game_finished')
