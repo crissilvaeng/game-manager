@@ -46,14 +46,15 @@ export class GamesService {
   async postGame(game: GameDto) {
     
     const url = process.env.POST_GAME_URL;
-    const data = JSON.stringify(game);
-    const config = { type: 'POST', headers: {
+    const data = game;
+    const config = { headers: {
       'accept': '*/*',
       'Authorization': 'Bearer ' + process.env.API_KEY,
       'content_type': 'application/json'
     }}
     
-    this.httpService.post(url,data,config)
+
+    this.httpService.post(url,data,config).toPromise().then((data) => console.log(data)).catch((err) => console.log(err))
     
   }
 }
