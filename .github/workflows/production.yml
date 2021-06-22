@@ -18,7 +18,7 @@ jobs:
       - run: yarn test:cov
   
   deploy:
-    needs: predeploy
+    #needs: predeploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
